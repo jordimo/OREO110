@@ -1,4 +1,4 @@
-export const GAME_TITLE = 'OREO 110th'
+export const GAME_TITLE = 'WORDOREO'
 
 export const WIN_MESSAGES = ['Great Job!', 'Awesome', 'Well done!']
 export const GAME_COPIED_MESSAGE = 'Game copied to clipboard'

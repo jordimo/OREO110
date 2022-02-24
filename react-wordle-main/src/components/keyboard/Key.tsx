@@ -22,16 +22,16 @@ export const Key = ({
   isRevealing,
 }: Props) => {
   const keyDelayMs = REVEAL_TIME_MS * MAX_WORD_LENGTH
-  const isHighContrast = getStoredIsHighContrastMode()
+  //const isHighContrast = getStoredIsHighContrastMode()
 
   const classes = classnames(
     'flex items-center justify-center rounded mx-0.5 text-lg font-bold cursor-pointer select-none text-white font-pluto',
     {
       'transition ease-in-out': isRevealing,
-      'bg-slate-200 dark:bg-slate-600 hover:bg-slate-900 active:bg-slate-400': !status,
+      'bg-black hover:bg-slate-900 active:bg-slate-400': !status,
       'bg-black text-slate-600': status === 'absent',
-      'bg-white hover:bg-slate-600 active:bg-black text-black border-black border-2': status === 'correct',
-      'bg-black hover:bg-slate-600 active:bg-yellow-700 ': status === 'present',
+      'bg-white hover:bg-slate-600  text-black border-black border-2': status === 'correct',
+      'bg-black hover:bg-slate-600  ': status === 'present',
     }
   )
 

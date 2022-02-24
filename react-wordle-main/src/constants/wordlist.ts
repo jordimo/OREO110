@@ -1,6 +1,6 @@
 export const WORDS = [
   'oreos',
   'dunks',
-  'twists',
+  'twist',
   'licks'
   ]

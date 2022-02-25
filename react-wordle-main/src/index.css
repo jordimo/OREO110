@@ -20,9 +20,9 @@
   --default-cell-border-color: theme('colors.black');
   --default-cell-text-color: theme('colors.white');
   --absent-cell-bg-color: theme('colors.black');
-  --correct-cell-bg-color: theme('colors.white');
+  --correct-cell-bg-color: theme('colors.black');
   --present-cell-bg-color: theme('colors.black');
-  --correct-cell-border-color: theme('colors.white');
+  --correct-cell-border-color: theme('colors.black');
 }
 
 

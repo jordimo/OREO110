@@ -29,7 +29,7 @@ export const Cell = ({
       'text-white bg-green': !status,
       'border-black bg-green ': value && !status,
       'absent shadowed border-black text-slate-600': status === 'absent',
-      'bg-white border-black text-black border-4': status === 'correct',
+      'correct bg-white border-black text-black border-4': status === 'correct',
       'present shadowed text-white border--0': status === 'present',
       'cell-fill-animation': isFilled,
       'cell-reveal': shouldReveal,

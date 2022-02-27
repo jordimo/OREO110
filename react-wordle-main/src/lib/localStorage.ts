@@ -13,8 +13,8 @@ export const saveGameStateToLocalStorage = (gameState: StoredGameState) => {
 export const loadGameStateFromLocalStorage = () => {
   const state = localStorage.getItem(gameStateKey)
   
-  //return state ? (JSON.parse(state) as StoredGameState) : null
-  return {"guesses":[], "solution":null}
+  return state ? (JSON.parse(state) as StoredGameState) : null
+  //return {"guesses":[], "solution":null}
 }
 
 const gameStatKey = 'gameStats'
@@ -26,6 +26,7 @@ export type GameStats = {
   bestStreak: number
   totalGames: number
   successRate: number
+  dailyGames : number
 }
 
 export const saveStatsToLocalStorage = (gameStats: GameStats) => {

@@ -5,12 +5,18 @@ import { GameStats } from '../../lib/localStorage'
 import { shareStatus } from '../../lib/share'
 import { tomorrow } from '../../lib/words'
 import { BaseModal } from './BaseModal'
+import { TOTAL_DAILY_GAMES } from '../../constants/settings'
+
 import {
   STATISTICS_TITLE,
   GUESS_DISTRIBUTION_TEXT,
   NEW_WORD_TEXT,
   SHARE_TEXT,
 } from '../../constants/strings'
+import classNames from 'classnames'
+import { count } from 'console'
+
+
 
 type Props = {
   isOpen: boolean
@@ -48,6 +54,10 @@ export const StatsModal = ({
       </BaseModal>
     )
   }
+
+  const moreGamesToday = (gameStats.dailyGames < TOTAL_DAILY_GAMES)
+
+ 
   return (
     <BaseModal
       title={STATISTICS_TITLE}
@@ -61,14 +71,30 @@ export const StatsModal = ({
       <Histogram gameStats={gameStats} />
       {(isGameLost || isGameWon) && (
         <div className="mt-5 sm:mt-6 columns-2 text-white font-pluto">
-          <div>
-            <h5>{NEW_WORD_TEXT}</h5>
-            <Countdown
-              className="text-lg font-medium text-white font-pluto"
-              date={tomorrow}
-              daysInHours={true}
-            />
-          </div>
+
+
+      {(gameStats.dailyGames < TOTAL_DAILY_GAMES) && (
+        <div>
+          {gameStats.dailyGames} out of {TOTAL_DAILY_GAMES} daily games
+        </div>
+      )}
+
+      {(gameStats.dailyGames >= TOTAL_DAILY_GAMES) && (
+        <div>
+        <h5>{NEW_WORD_TEXT}</h5>
+        <Countdown
+          className="text-lg font-medium text-white font-pluto"
+          date={tomorrow}
+          daysInHours={true}
+        />
+      </div>
+      
+      )}
+          
+          
+          
+          
+          
           <button
             type="button"
             className="mt-2 w-full rounded-md border border-0 shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white "

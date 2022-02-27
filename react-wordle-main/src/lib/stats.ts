@@ -1,3 +1,4 @@
+import { debug } from 'console'
 import { MAX_CHALLENGES } from '../constants/settings'
 import {
   GameStats,
@@ -31,6 +32,10 @@ export const addStatsForCompletedGame = (
 
   stats.successRate = getSuccessRate(stats)
 
+  stats.dailyGames +=1;
+  
+  console.trace(stats)
+
   saveStatsToLocalStorage(stats)
   return stats
 }
@@ -42,12 +47,11 @@ const defaultStats: GameStats = {
   bestStreak: 0,
   totalGames: 0,
   successRate: 0,
+  dailyGames : 0,
 }
 
 export const loadStats = () => {
- // return loadStatsFromLocalStorage() || defaultStats
-  return defaultStats
-    
+  return loadStatsFromLocalStorage() || defaultStats    
 }
 
 const getSuccessRate = (gameStats: GameStats) => {

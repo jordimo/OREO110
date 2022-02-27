@@ -24,6 +24,8 @@ import {
   REVEAL_TIME_MS,
   GAME_LOST_INFO_DELAY,
   WELCOME_INFO_MODAL_MS,
+  TOTAL_DAILY_GAMES,
+
 } from './constants/settings'
 import {
   isWordInWordList,
@@ -75,9 +77,10 @@ function App() {
     if (loaded?.solution !== solution) {
       return []
     }
+
     const gameWasWon = loaded.guesses.includes(solution)
     if (gameWasWon) {
-      //setIsGameWon(true)
+      setIsGameWon(true)
     }
     if (loaded.guesses.length === MAX_CHALLENGES && !gameWasWon) {
       setIsGameLost(true)
@@ -148,6 +151,9 @@ function App() {
   }, [guesses])
 
   useEffect(() => {
+
+    
+
     if (isGameWon) {
       const winMessage =
         WIN_MESSAGES[Math.floor(Math.random() * WIN_MESSAGES.length)]
@@ -183,6 +189,7 @@ function App() {
   }
 
   const onEnter = () => {
+    
     if (isGameWon || isGameLost) {
       return
     }
@@ -230,6 +237,7 @@ function App() {
       setCurrentGuess('')
 
       if (winningWord) {
+        
         setStats(addStatsForCompletedGame(stats, guesses.length))
         return setIsGameWon(true)
       }
@@ -242,7 +250,9 @@ function App() {
           delayMs: REVEAL_TIME_MS * MAX_WORD_LENGTH + 1,
         })
       }
+      
     }
+    
   }
 
   return (
